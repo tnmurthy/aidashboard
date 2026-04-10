@@ -259,10 +259,10 @@
       const trendSection = el('section', 'grid-2');
       const trendCard = el('div', 'card');
       const recent = data.daily.slice(-45);
-      const recentWithMA = movingAverage(movingAverage(recent, 'backlog_end', 7), 'sla_breach_rate', 7);
+      const recentWith7DayMA = movingAverage(movingAverage(recent, 'backlog_end', 7), 'sla_breach_rate', 7);
       trendCard.innerHTML = `
         <h2 class="section-title">Backlog and service quality trend</h2>
-        ${lineChart(recentWithMA, [
+        ${lineChart(recentWith7DayMA, [
           { key: 'backlog_end', color: '#7aa2ff', width: 1.5, opacity: 0.45 },
           { key: 'sla_breach_rate', color: '#ff8f6b', width: 1.5, opacity: 0.45 },
           { key: 'backlog_end_ma7', color: '#7aa2ff', width: 2.5, dash: '8 4' },
